@@ -1,0 +1,1 @@
+INSERT INTO ITEM(id,name,price,quanity) VALUES(1,12.0,2,'asd')
