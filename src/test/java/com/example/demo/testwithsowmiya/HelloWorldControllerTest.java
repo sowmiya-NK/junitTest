@@ -15,6 +15,7 @@ import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -32,8 +33,14 @@ public class HelloWorldControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(content().string("Hello World")).andReturn();
 
-        assertEquals("Hello World1234567",result.getResponse().getContentAsString());
+        assertEquals("Hello World",result.getResponse().getContentAsString());
 
 
+    }
+
+
+    @Test
+    public void justChecking(){
+        assertTrue(false);
     }
 }
