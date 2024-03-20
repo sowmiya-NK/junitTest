@@ -10,9 +10,9 @@ environment {
 LOG_LEVEL='INFO'
 }
 steps{
-bat '''
-echo "Building release ${RELEASE} with log level ..${LOG_LEVEL}..."
-'''
+
+bat "Building release ${RELEASE} with log level ..${LOG_LEVEL}..."
+
 
 }
 }
