@@ -43,11 +43,9 @@ pipeline {
             }
 
         }
-
-       }
 }
 
-    }
+
 
     post {
 
@@ -68,5 +66,4 @@ pipeline {
         }
 
     }
-
 }
