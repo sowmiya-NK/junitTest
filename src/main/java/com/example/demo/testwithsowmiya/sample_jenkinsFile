@@ -1,0 +1,112 @@
+[1:03 PM] Viswanthkumar Chaduvu
+pipeline {
+
+    agent any
+
+    stages {
+
+        stage('Checkout') {
+
+            steps {
+
+                // Checkout the source code from your version control system
+
+                git 'https://github.com/sowmiya-NK/junitTest.git'
+
+            }
+
+        }
+
+        stage('Build') {
+
+            steps {
+
+                // Build the project using Maven
+
+                bat 'mvn clean package'
+
+            }
+
+        }
+
+        stage('Test') {
+
+            steps {
+
+                // Run tests using Maven
+
+                bat 'mvn test'
+
+            }
+
+        }
+
+       stage('Deploy') {
+
+    steps {
+
+        script {
+
+            // Prompt for confirmation
+
+            def userInput = input(
+
+                id: 'deployPrompt',
+
+                message: 'Do you want to proceed with deployment?',
+
+                parameters: [
+
+                    [$class: 'BooleanParameterDefinition', defaultValue: true, description: 'Proceed with deployment?', name: 'Proceed']
+
+                ]
+
+            )
+
+            // Check user input
+
+            if (userInput) {
+
+                // Deployment steps
+
+                bat 'echo "Deploying..."'
+
+                // Add your deployment commands here
+
+            } else {
+
+                // Abort deployment
+
+                error("Deployment aborted by user.")
+
+            }
+
+        }
+
+    }
+
+}
+
+    }
+
+    post {
+
+        success {
+
+            // Actions to take if the pipeline succeeds
+
+            echo 'Pipeline succeeded!'
+
+        }
+
+        failure {
+
+            // Actions to take if the pipeline fails
+
+            echo 'Pipeline failed!'
+
+        }
+
+    }
+
+}
