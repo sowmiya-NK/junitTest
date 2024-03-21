@@ -1,43 +1,39 @@
-pipeline{
-agent any
-environment {
-RELEASE="20.4"
+pipeline {
+    agent any
+    environment {
+        RELEASE='20.04'
+    }
+    stages {
+        stage('Build') {
+            agent any
+            environment {
+                LOG_LEVEL='INFO'
+            }
+            steps {
+                echo "Building release ${RELEASE} with log level ${LOG_LEVEL}..."
+            }
+        }
+        stage('Test') {
+            steps {
+                echo "Testing release ${RELEASE}..."
+            }
+        }
+        stage('Deploy') {
+            input {
+                message 'Deploy?'
+                ok 'Do it!'
+                parameters {
+                    string(name: 'TARGET_ENVIRONMENT', defaultValue: 'PROD', description: 'Target deployment environment')
+                }
+            }
+            steps {
+                echo "Deploying release ${RELEASE} to environment ${TARGET_ENVIRONMENT}"
+            }
+        }        
+    }
+    post{
+        always {
+             echo 'Prints whether deploy happened or not, success or failure'
+        }
+    }
 }
-stages{
-stage('Build'){
-agent any
-environment {
-LOG_LEVEL='INFO'
-}
-steps{
-bat "echo Building release ${RELEASE} with log level ..${LOG_LEVEL}..."
-}
-}
-
-stage('Test') {
-steps {
-bat "echo Testing.I can see release ${RELEASE}"
-echo "Testing File"
-}
-}
-
-stage('Deploy'){
-input{
-message 'please enter the message'
-ok 'Do It!'
-parameters {
-string(name: 'TARGET_ENVIRONMENT',defaultValue: 'PROD',description:'Target Description Environment')
-}
-}
-steps{
-bat "echo Deploying release ${RELEASE} to environment ${TARGET_ENVIRONEMENT}"
-}
-}
-
-post{
-always{
-echo "print whether deploy happenned or not,success or failure"
-}
-}
-}
-
