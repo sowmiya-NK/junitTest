@@ -10,7 +10,7 @@ pipeline {
       stage('Audit tools') {
         steps {
           bat '''
-              git --version | grep ${env.GIT_VERSION}
+              git --version
               java -version
               mvn -version
           '''
