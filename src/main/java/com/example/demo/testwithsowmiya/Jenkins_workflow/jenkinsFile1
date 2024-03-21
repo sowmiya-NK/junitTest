@@ -2,13 +2,11 @@ pipeline{
 agent any
 environment {
 RELEASE="20.04"
+LOG_LEVEL='INFO'
 }
 stages {
 stage('Build') {
 agent any
-environment {
-LOG_LEVEL='INFO'
-}
 steps {
 bat "echo Building release ${RELEASE} with log level ..${LOG_LEVEL}..."
 }
