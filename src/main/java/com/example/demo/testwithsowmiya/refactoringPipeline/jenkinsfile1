@@ -3,7 +3,7 @@ pipeline {
     environment {
       VERSION = '0.1.0'
       RELEASE_VERSION = 'R.2'
-      GIT_VERSION = '2.43.0'
+      GIT_VERSION = '2.42.0.'
     }
 
     stages {
