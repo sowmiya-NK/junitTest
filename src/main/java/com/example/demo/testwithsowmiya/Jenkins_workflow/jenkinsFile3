@@ -13,7 +13,7 @@ pipeline {
                     agent any
                     steps {
                         bat "echo Building release ${RELEASE} for ${STAGE_NAME} with log level ${LOG_LEVEL}..."
-                      bat  timeout /t 10 /nobreak
+                     sleep 10
 
                     }
                 }
@@ -22,7 +22,7 @@ pipeline {
                     agent any
                     steps {
                         bat "echo Building release ${RELEASE} for ${STAGE_NAME} with log level ${LOG_LEVEL}123..."
-                         bat timeout /t 10 /nobreak
+                         sleep 30
 
                     }
                 }
