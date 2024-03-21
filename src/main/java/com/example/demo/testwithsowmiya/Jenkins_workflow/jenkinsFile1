@@ -11,7 +11,7 @@ LOG_LEVEL='INFO'
 }
 steps{
 
-bat "Building release ${RELEASE} with log level ..${LOG_LEVEL}..."
+bat "Build release ${RELEASE} with log level ..${LOG_LEVEL}..."
 
 
 }
