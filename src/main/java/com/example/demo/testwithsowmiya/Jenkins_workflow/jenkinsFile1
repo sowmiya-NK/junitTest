@@ -9,11 +9,8 @@ agent any
 environment {
 LOG_LEVEL='INFO'
 }
-steps{
-
-bat "Build release ${RELEASE} with log level ..${LOG_LEVEL}..."
-
-
+steps {
+bat "Build release ${RELEASE} with log level  ${LOG_LEVEL}..."
 }
 }
 stage('Test') {
