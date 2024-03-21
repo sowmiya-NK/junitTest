@@ -24,7 +24,7 @@ echo "Testing File"
 stage('Deploy'){
 input{
 message 'please enter the message'
-ok 'Do It!"
+ok 'Do It!'
 parameters {
 string(name: 'TARGET_ENVIRONMENT',defaultValue: 'PROD',description:'Target Description Environment')
 }
