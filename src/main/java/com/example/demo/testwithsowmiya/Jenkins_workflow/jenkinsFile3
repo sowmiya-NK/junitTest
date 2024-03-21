@@ -13,7 +13,7 @@ pipeline {
                     agent any
                     steps {
                         bat "echo Building release ${RELEASE} for ${STAGE_NAME} with log level ${LOG_LEVEL}..."
-                        sh 'sleep 10'
+                        bat 'sleep 10'
                     }
                 }
 
@@ -21,7 +21,7 @@ pipeline {
                     agent any
                     steps {
                         bat "echo Building release ${RELEASE} for ${STAGE_NAME} with log level ${LOG_LEVEL}123..."
-                        sh 'sleep 30'
+                         bat 'sleep 30'
                     }
                 }
             }
