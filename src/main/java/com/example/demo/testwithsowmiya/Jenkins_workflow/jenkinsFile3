@@ -20,7 +20,7 @@ pipeline {
                 stage('windows-amd64') {
                     agent any
                     steps {
-                        bat " echo Building release ${RELEASE} for ${STAGE_NAME} with log level ${LOG_LEVEL}..."
+                        bat "echo Building release ${RELEASE} for ${STAGE_NAME} with log level ${LOG_LEVEL}..."
                         sh 'sleep 30'
                     }
                 }
